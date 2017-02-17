@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+	">
+	
+	<!-- 信息管理相关action -->
+	
+	<bean id="getAllTheInformationAction" class="com.gdut.ds.action.informationManagement.GetAllTheInformationAction" scope="prototype">
+		<property name="informationManagementService" ref="informationManagementService"></property>
+		<property name="orderingInformation" ref="orderingInformation"></property>
+	</bean>
+	
+	<bean id="getAllTheNoticeAction" class="com.gdut.ds.action.informationManagement.GetAllTheNoticeAction" scope="prototype">
+		<property name="informationManagementService" ref="informationManagementService"></property>
+	</bean>
+	
+	<bean id="getAllTheRecruitmentAction" class="com.gdut.ds.action.informationManagement.GetAllTheRecruitmentAction" scope="prototype">
+		<property name="informationManagementService" ref="informationManagementService"></property>
+	</bean>
+	
+	<bean id="publishTheNoticeAction" class="com.gdut.ds.action.informationManagement.PublishTheNoticeAction" scope="prototype">
+		<property name="informationManagementService" ref="informationManagementService"></property>
+		<property name="notice" ref="notice"></property>
+	</bean>
+	
+	<bean id="publishTheRecruitmentAction" class="com.gdut.ds.action.informationManagement.PublishTheRecruitmentAction" scope="prototype">
+		<property name="recruitment" ref="recruitment"></property>
+		<property name="informationManagementService" ref="informationManagementService"></property>
+	</bean>
+	
+	<bean id="reviseTheNoticeAction" class="com.gdut.ds.action.informationManagement.ReviseTheNoticeAction" scope="prototype">
+		<property name="informationManagementService" ref="informationManagementService"></property>
+		<property name="notice" ref="notice"></property>
+	</bean>
+	
+	<bean id="reviseTheRecruitmentAction" class="com.gdut.ds.action.informationManagement.ReviseTheRecruitmentAction" scope="prototype">
+		<property name="informationManagementService" ref="informationManagementService"></property>
+		<property name="recruitment" ref="recruitment"></property>
+	</bean>
+	
+	<bean id="deleteTheNoticeAction" class="com.gdut.ds.action.informationManagement.DeleteTheNoticeAction" scope="prototype">
+		<property name="informationManagementService" ref="informationManagementService"></property>
+	</bean>
+	
+	<bean id="deleteTheRecruitmentAction" class="com.gdut.ds.action.informationManagement.DeleteTheRecruitmentAction" scope="prototype">
+		<property name="informationManagementService" ref="informationManagementService"></property>
+	</bean>
+	
+	<bean id="getTheNoticeAction" class="com.gdut.ds.action.informationManagement.GetTheNoticeAction" scope="prototype">
+		<property name="gson" ref="gson"></property>
+		<property name="informationManagementService" ref="informationManagementService"></property>
+	</bean>
+	
+	<bean id="getTheRecruitmentAction" class="com.gdut.ds.action.informationManagement.GetTheRecruitmentAction" scope="prototype">
+		<property name="gson" ref="gson"></property>
+		<property name="informationManagementService" ref="informationManagementService"></property>
+	</bean>
+	
+	
+	<bean name="getTheNewestPageViewsAction" class="com.gdut.ds.action.informationManagement.GetTheNewestPageViewsAction" scope="prototype">
+	</bean>
+	
+</beans>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.gdut.ds.beans.userInfo.Applicant" table="Applicant">
+	
+		<id name="id" column="id" type="int">
+			<generator class="increment">
+			</generator>
+		</id>
+		
+		<property name="studentID" column="studentID" type="string"></property>
+		<property name="name" column="name" type="string"></property>
+		<property name="sex" column="sex" type="string"></property>
+		<property name="academy" column="academy" type="string"></property>
+		<property name="major" column="major" type="string"></property>
+		<property name="grade" column="grade" type="string"></property>
+		<property name="job" column="job" type="string"></property>
+		<property name="phoneNumber" column="phoneNumber" type="string"></property>
+		<property name="QQ" column="QQ" type="string"></property>
+		<property name="email" column="email" type="string"></property>
+		<property name="aspect" column="aspect" type="string"></property>
+		<property name="shortphoneNumber" column="shortphoneNumber" type="string"></property>
+		<property name="hopes" column="hopes" type="string"></property>
+		<property name="skills" column="skills" type="string"></property>
+		<property name="selfevaluation" column="selfevaluation" type="string"></property>
+		<property name="time" column="time" type="timestamp"></property>
+		<property name="finished" column="finished" type="int"></property>
+		
+		<one-to-one name="studentAnswersANDGrade" class="com.gdut.ds.beans.examination.StudentAnswersANDGrade"
+		 cascade="all" fetch="join">
+		</one-to-one>
+		
+	</class>
+
+</hibernate-mapping>

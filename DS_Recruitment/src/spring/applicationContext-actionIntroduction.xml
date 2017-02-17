@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+	">
+	 	
+	 	<!-- 有关于工作室介绍中的成果的action -->
+	 	<bean id="gson" class="com.google.gson.Gson"></bean>
+	 	
+	 	<bean id="imageFunction" class="com.gdut.ds.utils.ImageFunction"></bean>
+	 	
+		<bean id="createResultAction" class="com.gdut.ds.action.introduction.CreateResultAction" scope="prototype">
+			<property name="imageFunction" ref="imageFunction"></property>
+			<property name="resultService" ref="resultService"></property>
+		</bean> 
+		
+		<bean id="createActivityAction" class="com.gdut.ds.action.introduction.CreateActivityAction" scope="prototype">
+			<property name="imageFunction" ref="imageFunction"></property>
+			<property name="activityService" ref="activityService"></property>
+		</bean> 
+		
+		<bean id="createInterecommunion" class="com.gdut.ds.action.introduction.CreateInterecommunionAction" scope="prototype">
+			<property name="imageFunction" ref="imageFunction"></property>
+			<property name="interecommunionService" ref="interecommunionService"></property>
+		</bean>
+		
+		<bean id='createArticle' class="com.gdut.ds.action.introduction.CreateArticleAction" scope="prototype">
+			<property name="articleService" ref='articleService'></property>
+			
+		</bean>
+		
+		<bean id="createMember" class="com.gdut.ds.action.introduction.CreateMemberAction">
+			<property name="memberService" ref="memberService"></property>
+		</bean>
+		
+		<bean id="getResultAction" class="com.gdut.ds.action.introduction.GetResultAction" scope="prototype">
+			<property name="resultService" ref="resultService"></property>
+			<property name="gson" ref="gson"></property>
+		</bean>
+		
+		
+		
+		<bean id="getOneResultAction" class="com.gdut.ds.action.introduction.GetOneResultAction" scope="prototype">
+			<property name="resultService" ref="resultService"></property>
+			<property name="gson" ref="gson"></property>
+		</bean>
+		
+		<bean id="getActivitiesAction" class="com.gdut.ds.action.introduction.GetActivitiesAction">
+			<property name="activityService" ref="activityService"></property>
+			<property name="gson" ref="gson"></property>
+		</bean>
+		
+		<bean id='getOneActivityAction' class="com.gdut.ds.action.introduction.GetOneActivityAction">
+			<property name="activityService" ref="activityService"></property>
+			<property name="gson" ref='gson'></property>
+		</bean>
+		
+		<bean id="getArticleAction" class="com.gdut.ds.action.introduction.GetArticleAction">
+			<property name="articleService" ref="articleService"></property>
+			<property name="gson" ref="gson"></property>
+		</bean>
+		
+		<bean id="getMember" class="com.gdut.ds.action.introduction.GetMemberAction">
+			<property name="memberService" ref="memberService"></property>
+			<property name="gson" ref="gson"></property>
+		</bean>
+		
+		<bean id="updateResultAction" class="com.gdut.ds.action.introduction.UpdateResultAction" scope="prototype">
+			<property name="imageFunction" ref="imageFunction"></property>
+			<property name="resultService" ref="resultService"></property>
+		</bean>
+		
+		<bean id="updateActivityAction" class="com.gdut.ds.action.introduction.UpdateActivityAction" scope="prototype">
+			<property name="imageFunction" ref="imageFunction"></property>
+			<property name="activityService" ref="activityService"></property>
+		</bean>
+		
+		<bean id="updateArticleAction" class="com.gdut.ds.action.introduction.UpdateArticleAction">
+			<property name="articleService" ref="articleService"></property>
+		</bean>
+		
+		<bean id="updateMember" class="com.gdut.ds.action.introduction.UpdateMemberAction">
+			<property name="memberService" ref="memberService"></property>
+		</bean>
+		
+		<bean id="deleteImageAction" class="com.gdut.ds.action.introduction.DeleteImageAction">
+			<property name="imageService" ref="imageService"></property>
+		</bean>
+		
+		<bean id="deleteResultAction" class="com.gdut.ds.action.introduction.DeleteResultAction">
+			<property name="resultService" ref="resultService"></property>
+		</bean>
+		
+		<bean id="deleteActivityAction" class="com.gdut.ds.action.introduction.DeleteActivityAction">
+			<property name="activityService" ref="activityService"></property>
+		</bean>
+		
+		<bean id="deleteMemberAction" class="com.gdut.ds.action.introduction.DeleteMemberAction" >
+			<property name="memberService" ref="memberService"></property>
+		</bean>
+		
+		<bean id="upLoadImageAction" class="com.gdut.ds.action.introduction.UpLoadImageAction">
+			<property name="imageFunction" ref="imageFunction"></property>
+		</bean>
+		
+		<bean id='deleteArticleTempImage' class="com.gdut.ds.action.introduction.DeleteArticleTempImageAction">
+			<property name="articleService" ref='articleService'></property>
+		</bean>
+		<bean id='deleteMemberTempImage' class="com.gdut.ds.action.introduction.DeleteMemberTempImageAction">
+			<property name="memberService" ref='memberService'></property>
+		</bean>
+		
+		
+		<!-- 以下是成员的一些管理 -->
+		
+		<bean id="getMemberByUser" class="com.gdut.ds.action.user.introduction.GetMemberAction">
+			<property name="gson" ref="gson"></property>
+			<property name="memberService" ref="memberService"></property>
+		</bean>
+		
+		<bean id="getResultByUser" class="com.gdut.ds.action.user.introduction.GetResultAction">
+			<property name="gson" ref="gson"></property>
+			<property name="resultService" ref="resultService"></property>
+		</bean>
+		
+		<bean id="getInterecommunionByUser" class="com.gdut.ds.action.user.introduction.GetInterecommunionAction">
+			<property name="gson" ref="gson"></property>
+			<property name="interecommunionService" ref="interecommunionService"></property>
+		</bean>
+		
+		<bean id="getActivitiesByUser" class="com.gdut.ds.action.user.introduction.GetActivitiesAction">
+				<property name="gson" ref="gson"></property>
+				<property name="activityService" ref="activityService"></property>
+		</bean>
+		
+		<bean id="getArticlesByUser" class="com.gdut.ds.action.user.introduction.GetArticleAction">
+			<property name="gson" ref="gson"></property>
+			<property name="articleService" ref="articleService"></property>
+		</bean>
+		
+</beans>

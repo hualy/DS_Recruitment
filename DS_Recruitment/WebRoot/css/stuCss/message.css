@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+body{color:#fff;font-size: 15px;background-image: url(../../photos/stuImg/back.jpg);}
+
+h3{color: #69b241;}
+h4{color:#3caee7;}
+/*面板*/
+.panel-heading{ margin-top: 45px;}
+.panel-default{background-color:rgba(255,255,255,0.4);border: 0px;}
+/*按钮*/
+.btn-primary{background-color: #3caee7;border-color: #3caee7;}

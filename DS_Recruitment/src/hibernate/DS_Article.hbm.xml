@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.gdut.ds.beans.introduction.DS_Article" table="DS_Article" >
+		<cache usage="read-write" />		<!-- 配置缓存（需要更新数据，那么使用读/写缓存） -->
+		<id name="id" column="id" type="string">
+			<generator class="uuid">
+			</generator>
+		</id>
+		
+		<property name="theme" column="theme" type="string"></property>
+		<property name="date" column="date" type="string"></property>
+		<property name="lanucher" column="lanucher" type="string"></property>
+		<property name="description" column="description" type="string"></property>
+		<property name="content" column="content" type="text"></property>
+		<!-- 
+		<list name="images" inverse="false" cascade="save-update">
+			<key column="article_id"></key>
+			<index column="article_position" type="integer"></index>
+			<one-to-many class="com.gdut.ds.beans.introduction.Image"/>
+		</list>
+		<set name="images" inverse="false" cascade="save-update">
+			<key column="article_id"></key>
+			<one-to-many class="com.gdut.ds.beans.introduction.Image"/>
+		</set>
+		 -->
+		 
+		
+	</class>
+
+</hibernate-mapping>
+ 

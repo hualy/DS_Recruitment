@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="introductionByUser" location="0,0" size="0,0">
+    <action name="getMembers" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getResults" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getInterecommunions" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getActivities" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getArticles" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="introduction" location="408,45" size="2415,910">
+    <action name="createResult" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="PublishAchievement.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="PublishAchievement.jsp" />
+      </result>
+    </action>
+    <action name="createActivity" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="PublishActivities.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="PublishActivities.jsp" />
+      </result>
+    </action>
+    <action name="createInterecommunion" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="PublishCommunication.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="PublishCommunication.jsp" />
+      </result>
+    </action>
+    <action name="createArticle" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="PublishInformation.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="PublishInformation.jsp" />
+      </result>
+    </action>
+    <action name="createMember" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="PublishMember.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="PublishMember.jsp" />
+      </result>
+    </action>
+    <action name="getResult" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getOneResult" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getActivities" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getOneActivity" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getInterecommunion" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getOneInterecommunion" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getArticle" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getOneArticle" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getMember" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getOneMember" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="updateResult" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="ReviseAchievement.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="ReviseAchievement.jsp" />
+      </result>
+    </action>
+    <action name="updateActivity" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="ReviseActivities.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="ReviseActivities.jsp" />
+      </result>
+    </action>
+    <action name="updateInterecommunion" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="ReviseCommunication.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="ReviseCommunication.jsp" />
+      </result>
+    </action>
+    <action name="updateMember" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="ReviseMember.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="ReviseMember.jsp" />
+      </result>
+    </action>
+    <action name="updateArticle" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="ReviseInformation.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="ReviseInformation.jsp" />
+      </result>
+    </action>
+    <action name="deleteImage" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="deleteResult" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="ReviseAchievement.jsp" />
+      </result>
+    </action>
+    <action name="deleteActivity" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="ReviseActivities.jsp" />
+      </result>
+    </action>
+    <action name="deleteInterecommunion" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="ReviseCommunication.jsp" />
+      </result>
+    </action>
+    <action name="deleteArticle" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="ReviseInformation.jsp" />
+      </result>
+    </action>
+    <action name="deleteMember" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="ReviseMember.jsp" />
+      </result>
+    </action>
+    <action name="upLoadImage" location="0,0" size="0,0">
+      <result name="none">
+        <resourceEdge source="none" routing="0" target="PublishInformation.jsp" />
+      </result>
+    </action>
+    <action name="deleteTempImageForArticle" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="deleteTempImageForMember" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="upLoadMemberImage" location="0,0" size="0,0">
+      <result name="none">
+        <resourceEdge source="none" routing="0" target="PublishMember.jsp" />
+      </result>
+    </action>
+  </package>
+  <package name="word" location="13,2355" size="525,315">
+    <action name="sendLeavingWord" location="65,57" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="messageBoard.jsp" />
+      </result>
+      <result name="invalid.token">
+        <resourceEdge source="invalid.token" routing="0" target="messageBoard.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="messageBoard.jsp" />
+      </result>
+    </action>
+    <action name="getQuestion" location="310,127" size="150,41">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="adminWord" location="0,0" size="0,0">
+    <action name="getLeavingWord" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="answerForLeavingWord" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="MessageReply.jsp" />
+      </result>
+    </action>
+  </package>
+  <package name="userInfo" location="1837,2354" size="460,71">
+    <action name="adminLoginAction" location="15,23" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="saveApplicantInfoAction" location="260,23" size="150,41">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="adminUserInfo" location="0,0" size="0,0">
+    <action name="adminLogoutAction" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="LoginManager.jsp" />
+      </result>
+    </action>
+  </package>
+  <package name="informationManagement" location="431,1375" size="1260,735">
+    <action name="getAllTheNoticeAction" location="1045,232" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="ReviseAnnouncement.jsp" />
+      </result>
+    </action>
+    <action name="getAllTheRecruitmentAction" location="1045,337" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="ReviseRecruitment.jsp" />
+      </result>
+    </action>
+    <action name="publishTheNoticeAction" location="65,337" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="publishTheRecruitmentAction" location="65,652" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="reviseTheNoticeAction" location="800,652" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="reviseTheRecruitmentAction" location="800,407" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="deleteTheNoticeAction" location="310,407" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="deleteTheRecruitmentAction" location="310,582" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="getTheNoticeAction" location="555,582" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="getTheRecruitmentAction" location="555,477" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="getTheNewestPageViewsAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="examination_public" location="2038,1515" size="525,245">
+    <action name="getAllTheInformationAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getTheExamPaperAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="firstScoringAction" location="310,162" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="examPermissionJudgementAction" location="65,152" size="150,62">
+      <result name="success" />
+      <result name="input" />
+    </action>
+    <action name="createCheckCodeAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="applicationValidateAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <package name="examination_manager" location="866,2355" size="525,245">
+    <action name="exportTheApplicationFromAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getALLTheExaminationQuestionsAction" location="65,57" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="deleteTheSetOfExaminationQuestionsAction" location="65,162" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="getTheSetOfExaminationQuestionsAction" location="310,162" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="judgementOfsetIDAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addASetOfExaminationQuestionsAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getTheSetOfExaminationQuestionsAction" location="310,162" size="150,41">
+      <result name="success" />
+    </action>
+    <action name="reviseTheMultipleChoiceAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="reviseTheFillInTheBlankAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="reviseTheProceduralQuestionsAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="deleteTheMultipleChoiceAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="deleteTheFillInTheBlankAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="deleteTheProceduralQuestionsAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addTheMultipleChoiceListAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addTheFillInTheBlankListAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addTheProceduralQuestionsListAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="addInformationForExamAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getAllInformationForExamAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="getTheInformationForExamAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+    <action name="reviseInformationForExamAction" location="0,0" size="0,0">
+      <result name="success" />
+    </action>
+  </package>
+  <webResource name="PublishAchievement.jsp" path="/manPage/GeneralSituation/PublishAchievement.jsp" location="37,65" size="150,55" />
+  <webResource name="PublishActivities.jsp" path="/manPage/GeneralSituation/PublishActivities.jsp" location="48,240" size="150,55" />
+  <webResource name="PublishCommunication.jsp" path="/manPage/GeneralSituation/PublishCommunication.jsp" location="273,1115" size="150,55" />
+  <webResource name="PublishInformation.jsp" path="/manPage/GeneralSituation/PublishInformation.jsp" location="669,1010" size="150,55" />
+  <webResource name="ReviseActivities.jsp" path="/manPage/GeneralSituation/ReviseActivities.jsp" location="1520,1010" size="150,55" />
+  <webResource name="ReviseCommunication.jsp" path="/manPage/GeneralSituation/ReviseCommunication.jsp" location="1115,1010" size="150,55" />
+  <webResource name="messageBoard.jsp" path="/stuPage/messageBoard.jsp" location="584,2375" size="150,55" />
+  <webResource name="Information.jsp" path="/stuPage/Information.jsp" location="207,1395" size="150,55" />
+  <webResource name="ReviseAnnouncement.jsp" path="/manPage/InformationManage/ReviseAnnouncement.jsp" location="10,1570" size="150,55" />
+  <webResource name="ReviseRecruitment.jsp" path="/manPage/InformationManage/ReviseRecruitment.jsp" location="1383,2165" size="150,55" />
+  <webResource name="Exam.jsp" path="/stuPage/Exam.jsp" location="2357,1360" size="150,55" />
+  <webResource name="ExamAfter.jsp" path="/stuPage/ExamAfter.jsp" location="2623,1640" size="150,55" />
+  <webResource name="ExamApply.jsp" path="/stuPage/ExamApply.jsp" location="2096,1815" size="150,55" />
+  <webResource name="ExamBefore.jsp" path="/stuPage/ExamBefore.jsp" location="1813,1640" size="150,55" />
+  <webResource name="ExamTopicManage.jsp" path="/manPage/ExamManage/ExamTopicManage.jsp" location="1449,2375" size="150,55" />
+  <webResource name="ReviseAchievement.jsp" path="/manPage/GeneralSituation/ReviseAchievement.jsp" location="0,0" size="0,0" />
+  <webResource name="ReviseInformation.jsp" path="/manPage/GeneralSituation/ReviseInformation.jsp" location="0,0" size="0,0" />
+  <webResource name="ReviseExamination.jsp" path="/manPage/ExamManage/ReviseExamination.jsp" location="0,0" size="0,0" />
+  <webResource name="ExamMessageManage.jsp" path="/manPage/ExamManage/ExamMessageManage.jsp" location="0,0" size="0,0" />
+  <webResource name="PublishMember.jsp" path="/manPage/GeneralSituation/PublishMember.jsp" location="0,0" size="0,0" />
+  <webResource name="ReviseMember.jsp" path="/manPage/GeneralSituation/ReviseMember.jsp" location="0,0" size="0,0" />
+  <webResource name="LoginManager.jsp" path="/manPage/LoginManager.jsp" location="0,0" size="0,0" />
+  <webResource name="MessageReply.jsp" path="/manPage/MessageReply.jsp" location="0,0" size="0,0" />
+</Struts2Diagram>
+

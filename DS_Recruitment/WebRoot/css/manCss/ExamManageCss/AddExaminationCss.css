@@ -1,0 +1,22 @@
+
+.ChooseTopic{
+	width:80%;
+}
+.topic-piece{
+	margin:10px 0px;	
+	width:100%;
+	border:1px solid #ccc;
+	border-radius:15px;
+	padding:10px;
+}
+.answer,.operate-btn{
+	margin-left:5%;
+}
+.topic{
+	margin-left:4%;
+}
+.panel-default > .panel-heading{
+	background-color:rgb(155,251,193);
+}
+
+

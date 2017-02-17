@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="DS_Recruitment"
+  id="myeclipse.1453185721583"
+  context-root="/DS_Recruitment"
+  j2ee-spec="5.0"
+  archive="DS_Recruitment.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

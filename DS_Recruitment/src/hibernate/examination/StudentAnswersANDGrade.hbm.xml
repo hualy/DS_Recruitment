@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.gdut.ds.beans.examination.StudentAnswersANDGrade" table="StudentAnswersANDGrade" >
+	
+		<id name="id" column="id" type="int">
+			<generator class="increment">
+			</generator>
+		</id>
+		
+		<property name="beginTime" column="beginTime" type="timestamp"></property>
+		<property name="timeOfExamination" column="timeOfExamination" type="string"></property>
+		<property name="firstGrade" column="firstGrade" type="int"></property>
+		<property name="finalGrade" column="finalGrade" type="int"></property>
+		
+		<one-to-one name="applicant" class="com.gdut.ds.beans.userInfo.Applicant" cascade="all" ></one-to-one>
+		
+		<one-to-one name="examPaper" class="com.gdut.ds.beans.examination.ExamPaper" cascade="all"></one-to-one>
+		
+		
+		<list name="proceduralQuestionsAnswerList" inverse="false" lazy="true" cascade="all">
+			<key column="student_id"></key>
+			<list-index base="1" column="title_id"></list-index>
+			<one-to-many class="com.gdut.ds.beans.examination.ProceduralQuestionsAnswer"/>
+		</list>
+		
+	</class>
+
+</hibernate-mapping>

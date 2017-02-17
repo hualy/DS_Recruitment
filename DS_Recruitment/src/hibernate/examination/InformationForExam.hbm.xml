@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.gdut.ds.beans.examination.InformationForExam" table="InformationForExam" >
+	
+		<id name="id" column="id" type="int">
+			<generator class="increment">
+			</generator>
+		</id>
+		
+		<property name="examName" column="examName" type="string"></property>
+		<property name="setID" column="setID" type="int"></property>
+		<property name="beginTime" column="beginTime" type="timestamp"></property>
+		<property name="endTime" column="endTime" type="timestamp"></property>
+		<property name="wholeTime" column="wholeTime" type="string"></property>
+		<property name="released" column="released" type="int"></property>
+		<property name="finished" column="finished" type="int"></property>
+		
+		
+	</class>
+
+</hibernate-mapping>

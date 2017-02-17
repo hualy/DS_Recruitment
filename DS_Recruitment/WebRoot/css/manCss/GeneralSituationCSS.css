@@ -1,0 +1,61 @@
+textarea{
+	resize:none;
+}
+
+.exist-ach table,.exist-mem table,.exist-info table,.exist-com table,.exist-act table{
+	text-align: center;
+}
+
+
+/******发布/修改成果***********/
+
+.exist-ach{
+
+}
+.revise-ach{
+	display:none;
+}
+/******发布/修改成果***********/
+
+
+/******发布/修改成员***********/
+
+.revise-mem{
+	display: none;
+}
+/******发布/修改成员***********/
+
+
+
+/******发布/修改推送***********/
+.exist-info{
+	
+}
+#rev-info-form{
+	display:none;
+}
+/******发布/修改推送***********/
+
+
+/******发布/修改交流会***********/
+#rev-com-form{
+	display:none;
+}
+
+/******发布/修改交流会***********/
+
+
+
+/******发布/修改交流会***********/
+#rev-act-form{
+	display:none;
+}
+
+/******发布/修改交流会***********/
+
+
+
+
+
+
+

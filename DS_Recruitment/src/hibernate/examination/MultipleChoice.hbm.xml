@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.gdut.ds.beans.examination.MultipleChoice" table="MultipleChoice" >
+	
+		<id name="id" column="id" type="int">
+			<generator class="increment">
+			</generator>
+		</id>
+		
+		<property name="title" column="title" type="string"></property>
+		<property name="optionA" column="optionA" type="string"></property>
+		<property name="optionB" column="optionB" type="string"></property>
+		<property name="optionC" column="optionC" type="string"></property>
+		<property name="optionD" column="optionD" type="string"></property>
+		<property name="rightAnswer" column="rightAnswer" type="string"></property>
+		
+		<many-to-one name="examinationQuestions"  column="setID"  cascade="all" class="com.gdut.ds.beans.examination.ExaminationQuestions"></many-to-one>
+		
+	</class>
+
+</hibernate-mapping>

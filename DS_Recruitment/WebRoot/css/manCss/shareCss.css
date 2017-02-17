@@ -1,0 +1,56 @@
+*{
+	margin:0px;
+	padding:0px;
+	border: 0px;
+}
+@font-face{
+	font-family:HeadFont;
+	src:url("../../fonts/Drifttype.ttf");
+}
+
+body{
+	background-color: rgb(246,246,244);
+
+}
+.all{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	min-height: 100%;
+	width: 100%;
+}
+.content{
+	position: relative;
+	left: 0px;
+	top: 0px;
+	margin-bottom: 90px;
+}
+.footer{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	height: 70px;
+	width: 100%;
+	background-color: grey;
+	text-align: center;
+	margin-top:20px;
+}
+
+.foot-word{
+	font-size: 2rem;
+	color: white;
+	margin: auto;
+	margin-top: 3px;
+}
+.headline{
+	font-family: HeadFont;
+}
+.headline span{
+	float: left;
+}
+.clearFloat{
+	clear: both;
+}
+.breadcrumb{
+	text-align: left;
+}

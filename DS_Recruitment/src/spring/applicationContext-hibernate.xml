@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+	">
+	
+	
+	
+	<!-- cacheManager, 指定ehcache.xml的位置 -->
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation">
+			<value>classpath:ehcache/ehcache.xml</value>
+		</property>
+		<!-- 由于hibernate也使用了Ehcache, 保证双方都使用同一个缓存管理器 -->
+		<property name="shared" value="true"/>
+	</bean>   
+	
+	
+	<!-- 定义数据源Bean，使用c3p0数据源来实现，并注入数据源的必要信息 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" 
+		destroy-method="close" 
+		p:driverClass="com.mysql.jdbc.Driver" 
+		p:jdbcUrl="jdbc:mysql://127.0.0.1:3306/DS_Recruitment?characterEncoding=utf-8" 
+		p:user="root" 
+		p:password="ds616ds" 
+		p:maxPoolSize="40" 
+		p:minPoolSize="2" 
+		p:initialPoolSize="2" 
+		p:maxIdleTime="30" />
+		
+		<!-- 注入Hibernate的SessionFactory,SessionFactory需要依赖数据源，注入dataSource -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
+	  p:dataSource-ref="dataSource">
+	
+	  
+	 
+		<!-- 定义Hibernate SessionFactory的属性 -->
+		<property name="hibernateProperties">
+			<props>
+				<!-- 指定Hibernate的连接方言 -->
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect <!--  org.hibernate.dialect.MySQLDialect--> </prop>
+				<!-- 是否根据Hibernate映射来创建数据表 -->
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				
+				<prop key="connection.autocommit">true</prop>
+				
+				 <!-- 
+				<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>
+				<prop key="hibernate.current_session_context_class">thread</prop>
+				 -->
+				 <!-- 开启查询缓存 -->
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<!-- 开启二级缓存 -->
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<!-- 高速缓存提供程序 -->
+				<!-- 由于spring也使用了Ehcache, 保证双方都使用同一个缓存管理器 -->
+				<prop key="hibernate.cache.region.factory_class">
+				org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>
+			</props>
+		</property>
+		
+		
+		<!-- 加入hibernate.hbml.xml文件 -->
+		<property name="mappingDirectoryLocations">
+            <list>
+                <value>classpath:hibernate/</value>	<!-- 加载hibernate的映射文件*.hbm.xml -->
+            </list>
+        </property>
+		
+		
+		
+	</bean>
+	
+	
+	
+	<!-- 配置hibernate的局部事务管理器，使用HibernateTransactionManager类  -->
+	<!-- 该类是PlatformTransactionManager 需要依赖注入SessionFactory-->
+	<bean id="transcationManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager"
+	  p:sessionFactory-ref="sessionFactory"></bean>
+		
+		<!-- 配置事务增强处理Bean，指定事务管理器 -->
+		
+		<tx:advice id="txAdvice" transaction-manager="transcationManager">
+			<!-- 用于配置详细的事务定义 -->
+			<tx:attributes>
+				<tx:method name="find*" read-only="true"/>
+				<tx:method name="get*" read-only="true"/>
+				<tx:method name="*" propagation="REQUIRED"/>
+			</tx:attributes>
+		
+		</tx:advice>
+
+		<!-- Aop的配置元素 -->
+		
+		<aop:config proxy-target-class="true">
+			<!-- 配置一个事务的切入点 （只有select语句没有insert语句就是没有配置好事务）-->
+			<aop:pointcut expression="execution(* com.gdut.ds.serviceImpl.*.*(..))" id="serviceImplPointcut"/>
+			
+			<!-- 指定在Mypointcut 切入点应用txAdvice事务增强处理 -->
+			<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceImplPointcut" />
+		</aop:config>
+
+			
+	
+	
+
+</beans>

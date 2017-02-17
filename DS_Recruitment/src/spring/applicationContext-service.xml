@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+	">
+	 	
+	 	
+		
+		<bean id="resultService" class="com.gdut.ds.serviceImpl.ResultServiceImpl">
+			<property name="resultDao" ref="resultDao"></property>
+			<property name="result" ref="result"></property>
+			<property name="imageDao" ref="imageDao"></property>
+			<property name="imageFunction" ref="imageFunction"></property>
+		</bean>
+		
+		<bean id="activityService" class="com.gdut.ds.serviceImpl.ActivityServiceImpl">
+			<property name="activityDao" ref="activityDao"></property>
+			<property name="activity" ref="activity"></property>
+			<property name="imageDao" ref="imageDao"></property>
+			<property name="imageFunction" ref="imageFunction"></property>
+		</bean>
+		
+		<bean id="articleService" class="com.gdut.ds.serviceImpl.ArticleServiceImpl">
+			<property name="article" ref='article'></property>
+			<property name="articleDao" ref='articleDao'></property>
+			<property name="imageDao" ref="imageDao"></property>
+			<property name="imageFunction" ref="imageFunction"></property>
+		</bean>
+		
+		<bean id="imageService" class="com.gdut.ds.serviceImpl.ImageServiceImpl">
+			<property name="imageDao" ref="imageDao"></property>
+			<!-- 
+			<property name="activityDao" ref="activityDao"></property>
+			<property name="articleDao" ref="articleDao"></property>
+			<property name="interecommunionDao" ref="interecommunionDao"></property>
+			<property name="resultDao" ref="resultDao"></property>
+			 -->
+		</bean>
+		<bean id="interecommunionService" class="com.gdut.ds.serviceImpl.InterecommunionServiceImpl">
+			<property name="interecommunionDao" ref="interecommunionDao"></property>
+			<property name="interecommunion" ref="interecommunion"></property>
+			<property name="imageDao" ref="imageDao"></property>
+			<property name="imageFunction" ref="imageFunction"></property>
+		</bean>
+		
+		<bean id="memberService" class="com.gdut.ds.serviceImpl.MemberServiceImpl">
+			<property name="imageDao" ref='imageDao'></property>
+			<property name="imageFunction" ref="imageFunction"></property>
+			<property name="member" ref='member'></property>
+			<property name="memberDao" ref="memberDao"></property>
+		
+		</bean>
+		
+		
+		
+		<bean id="leavingWordService" class="com.gdut.ds.serviceImpl.LeavingWordServiceImpl">
+			<property name="leavingWord" ref="leavingWord"></property>
+			<property name="leavingWordDao" ref="leavingWordDao"></property>
+			
+		</bean>
+		
+		 
+		<bean id="questionService" class="com.gdut.ds.serviceImpl.QuestionServiceImpl">
+			<property name="leavingWordDao" ref="leavingWordDao"></property>
+			<property name="question" ref="question"></property>
+			<property name="questionDao" ref="questionDao"></property>
+		</bean>
+		 
+		 
+		
+		 
+		 
+		
+		<!-- 用户信息 -->
+		<bean id="userInfoService" class="com.gdut.ds.serviceImpl.UserInfoServiceImpl" scope="prototype">
+			<property name="applicantDao" ref="applicantDao"></property>
+			<property name="classesInfoDao" ref="classesInfoDao"></property>
+		</bean>
+		
+		<!-- 信息管理功能 -->
+		<bean id="informationManagementService" class="com.gdut.ds.serviceImpl.InformationManagementServiceImpl" scope="prototype">
+			<property name="noticeDao" ref="noticeDao"></property>
+			<property name="recruitmentDao" ref="recruitmentDao"></property>
+		</bean> 
+		
+		<!-- 网上考试和管理(未完善) -->
+		 <bean id="examinationService" class="com.gdut.ds.serviceImpl.ExaminationServiceImpl" scope="prototype">
+		 	<property name="examPaper" ref="examPaper"></property>
+		 	<property name="examPaperDao" ref="examPaperDao"></property>
+		 	<property name="fillInTheBlankDao" ref="fillInTheBlankDao"></property>
+		 	<property name="informationForExamDao" ref="informationForExamDao"></property>
+		 	<property name="multipleChoiceDao" ref="multipleChoiceDao"></property>
+		 	<property name="proceduralQuestionsDao" ref="proceduralQuestionsDao"></property>
+		 	<property name="stuGradeDao" ref="stuGradeDao"></property>
+		 	<property name="examinationQuestions" ref="examinationQuestions"></property>
+		 	<property name="examinationQuestionsDao" ref="examinationQuestionsDao"></property>
+		 	
+		 </bean>
+		 
+		 
+		 
+</beans>

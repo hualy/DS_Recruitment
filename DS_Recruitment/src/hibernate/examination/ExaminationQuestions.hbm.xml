@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.gdut.ds.beans.examination.ExaminationQuestions" table="ExaminationQuestions" >
+	
+		<id name="id" column="id" type="int">
+			<generator class="increment">
+			</generator>
+		</id>
+		
+		<property name="setID" column="setID" type="int"></property>
+		<property name="name" column="name" type="string"></property>
+		<property name="mscore" column="mscore" type="int"></property>
+		<property name="fscore" column="fscore" type="int"></property>
+		<property name="pscore" column="pscore" type="int"></property>
+		
+		<list name="multipleChoiceList" inverse="false" lazy="true" cascade="all">
+			<key column="setID"></key>   					<!-- 维护对方的外键,自己的主键作为它的外键 --> 
+			<list-index base="1" column="title_id"></list-index>					<!-- 下标从1开始 -->
+			<one-to-many class="com.gdut.ds.beans.examination.MultipleChoice"/>
+		</list>
+		
+		<list name="fillInTheBlankList" inverse="false" lazy="true" cascade="all">
+			<key column="setID"></key>
+			<list-index base="1" column="title_id"></list-index>
+			<one-to-many class="com.gdut.ds.beans.examination.FillInTheBlank"/>
+		</list>
+		
+		<list name="proceduralQuestionsList" inverse="false" lazy="true" cascade="all">
+			<key column="setID"></key>
+			<list-index base="1" column="title_id"></list-index>
+			<one-to-many class="com.gdut.ds.beans.examination.ProceduralQuestions"/>
+		</list>
+		
+	</class>
+
+</hibernate-mapping>

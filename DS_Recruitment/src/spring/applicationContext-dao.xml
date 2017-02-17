@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+	">
+	
+		<!-- 注入sessionFactory 到 daoImpl -->
+		<!-- 
+		<bean id="baseDao" class="com.gdut.ds.daoImpl.BaseDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		 -->
+		 <bean id="activityDao" class="com.gdut.ds.daoImpl.introduction.ActivityDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		
+		<bean id="articleDao" class="com.gdut.ds.daoImpl.introduction.ArticleDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		
+		<bean id="imageDao" class="com.gdut.ds.daoImpl.introduction.ImageDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		
+		<bean id="leavingWordDao" class="com.gdut.ds.daoImpl.word.LeavingWordDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		
+		<bean id="memberDao" class="com.gdut.ds.daoImpl.introduction.MemberDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		
+		<bean id="questionDao" class="com.gdut.ds.daoImpl.word.QuestionDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		
+		<bean id="resultDao" class="com.gdut.ds.daoImpl.introduction.ResultDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		
+		<bean id="interecommunionDao" class="com.gdut.ds.daoImpl.introduction.InterecommunionDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		
+		
+		
+		
+		
+		<bean id="applicantDao" class="com.gdut.ds.daoImpl.informationManagement.ApplicantDaoImpl" scope="prototype">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		
+		<bean id="noticeDao" class="com.gdut.ds.daoImpl.informationManagement.NoticeDaoImpl" scope="prototype">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		<bean id="recruitmentDao" class="com.gdut.ds.daoImpl.informationManagement.RecruitmentDaoImpl" scope="prototype">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		<bean id="pageViewsDao" class="com.gdut.ds.daoImpl.informationManagement.PageViewsDaoImpl" scope="prototype">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		<bean id="classesInfoDao" class="com.gdut.ds.daoImpl.userInfo.ClassesInfoDaoImpl" scope="prototype">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		
+		
+		<bean id="examPaperDao" class="com.gdut.ds.daoImpl.examination.ExamPaperDaoImpl" scope="prototype">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		<bean id="stuGradeDao" class="com.gdut.ds.daoImpl.examination.StudentAnswersANDGradeDaoImpl" scope="prototype">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		<bean id="multipleChoiceDao" class="com.gdut.ds.daoImpl.examination.MultipleChoiceDaoImpl" scope="prototype">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		<bean id="fillInTheBlankDao" class="com.gdut.ds.daoImpl.examination.FillInTheBlankDaoImpl" scope="prototype">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		<bean id="proceduralQuestionsDao" class="com.gdut.ds.daoImpl.examination.ProceduralQuestionsDaoImpl" scope="prototype">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		<bean id="proceduralQuestionsAnswerDao" class="com.gdut.ds.daoImpl.examination.ProceduralQuestionsAnswerDaoImpl" scope="prototype">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		<bean id="informationForExamDao" class="com.gdut.ds.daoImpl.examination.InformationForExamDaoImpl">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		<bean id="examinationQuestionsDao" class="com.gdut.ds.daoImpl.examination.ExaminationQuestionsDaoImpl" scope="prototype">
+			<property name="sessionFactory" ref="sessionFactory"></property>
+		</bean>
+		
+		
+		
+</beans>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+	">
+	
+	
+	<bean id="getALLTheExaminationQuestionsAction" class="com.gdut.ds.action.examination.manager.GetALLTheExaminationQuestionsAction" scope="prototype">
+		<property name="examinationService" ref="examinationService"></property>
+	</bean>
+	
+	<bean id="deleteTheSetOfExaminationQuestionsAction" class="com.gdut.ds.action.examination.manager.DeleteTheSetOfExaminationQuestionsAction" scope="prototype">
+		<property name="examinationService" ref="examinationService"></property>
+	</bean>
+	
+	<bean id="judgementOfsetIDAction" class="com.gdut.ds.action.examination.manager.JudgementOfsetIDAction" scope="prototype">
+		<property name="examinationService" ref="examinationService"></property>
+	</bean>
+	
+	<bean id="reviseTheMultipleChoiceAction" class="com.gdut.ds.action.examination.manager.ReviseTheMultipleChoiceAction" scope="prototype">
+		<property name="examinationService" ref="examinationService"></property>
+	</bean>
+	
+	<bean id="reviseTheFillInTheBlankAction" class="com.gdut.ds.action.examination.manager.ReviseTheFillInTheBlankAction" scope="prototype">
+		<property name="examinationService" ref="examinationService"></property>
+	</bean>
+	
+	<bean id="reviseTheProceduralQuestionsAction" class="com.gdut.ds.action.examination.manager.ReviseTheProceduralQuestionsAction" scope="prototype">
+		<property name="examinationService" ref="examinationService"></property>
+	</bean>
+	
+	<bean id="deleteTheMultipleChoiceAction" class="com.gdut.ds.action.examination.manager.DeleteTheMultipleChoiceAction" scope="prototype">
+		<property name="examinationService" ref="examinationService"></property>
+		<property name="multipleChoice" ref="multipleChoice"></property>
+	</bean>
+	
+	<bean id="deleteTheFillInTheBlankAction" class="com.gdut.ds.action.examination.manager.DeleteTheFillInTheBlankAction" scope="prototype">
+		<property name="examinationService" ref="examinationService"></property>
+		<property name="fillInTheBlank" ref="fillInTheBlank"></property>
+	</bean>
+	
+	<bean id="deleteTheProceduralQuestionsAction" class="com.gdut.ds.action.examination.manager.DeleteTheProceduralQuestionsAction" scope="prototype">
+		<property name="proceduralQuestions" ref="proceduralQuestions"></property>
+		<property name="examinationService" ref="examinationService"></property>
+	</bean>
+	
+	<bean id="addTheMultipleChoiceListAction" class="com.gdut.ds.action.examination.manager.AddTheMultipleChoiceListAction" scope="prototype">
+		<property name="examinationService" ref="examinationService"></property>
+	</bean>
+	
+	<bean id="addTheFillInTheBlankListAction" class="com.gdut.ds.action.examination.manager.AddTheFillInTheBlankListAction" scope="prototype">
+		<property name="examinationService" ref="examinationService"></property>
+	</bean>
+	
+	<bean id="addTheProceduralQuestionsListAction" class="com.gdut.ds.action.examination.manager.AddTheProceduralQuestionsListAction" scope="prototype">
+		<property name="examinationService" ref="examinationService"></property>
+	</bean>
+	
+	<bean id="addASetOfExaminationQuestionsAction" class="com.gdut.ds.action.examination.manager.AddASetOfExaminationQuestionsAction" scope="prototype">
+		<property name="examinationService" ref="examinationService"></property>
+		<property name="examinationQuestions" ref="examinationQuestions"></property>
+	</bean>
+	
+	<bean id="getTheSetOfExaminationQuestionsAction" class="com.gdut.ds.action.examination.manager.GetTheSetOfExaminationQuestionsAction" scope="prototype">
+		<property name="examinationService" ref="examinationService"></property>
+	</bean>
+	
+	
+	<bean id="addInformationForExamAction" class="com.gdut.ds.action.examination.manager.AddInformationForExamAction" scope="prototype">
+		<property name="examinationService" ref="examinationService"></property>
+		<property name="informationForExam" ref="informationForExam"></property>
+	</bean>
+	
+	<bean id="getAllInformationForExamAction" class="com.gdut.ds.action.examination.manager.GetAllInformationForExamAction" scope="prototype">
+		<property name="examinationService" ref="examinationService"></property>
+	</bean>
+	
+	<bean id="getTheInformationForExamAction" class="com.gdut.ds.action.examination.manager.GetTheInformationForExamAction" scope="prototype">
+		<property name="examinationService" ref="examinationService"></property>
+		<property name="gson" ref="gson"></property>
+	</bean>
+	
+	<bean id="reviseInformationForExamAction" class="com.gdut.ds.action.examination.manager.ReviseInformationForExamAction" scope="prototype">
+		<property name="examinationService" ref="examinationService"></property>
+		<property name="informationForExam" ref="informationForExam"></property>
+	</bean>
+	
+	
+	<!-- freemaker模版配置文件 -->
+	<bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath" value="/WEB-INF/config/template/" />
+		<property name="freemarkerSettings">
+			<props>
+				<prop key="template_update_delay">0</prop>
+				<prop key="default_encoding">utf-8</prop>
+				<prop key="locale">zh_CN</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean name="exportTheApplicationFromAction" class="com.gdut.ds.action.examination.manager.ExportTheApplicationFromAction" scope="prototype">
+		<property name="userInfoService" ref="userInfoService"></property>
+		<property name="freeMarkerConfigurer" ref="freeMarkerConfigurer"></property>
+	</bean>
+	
+	<bean name="checkCodeValidateAction" class="com.gdut.ds.action.examination.publics.CheckCodeValidateAction" scope="prototype">
+	</bean>
+	
+</beans>

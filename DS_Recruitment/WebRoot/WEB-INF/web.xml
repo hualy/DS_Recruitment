@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+	
+
+	
+		<!-- 缓存的页面-->
+	<filter>
+	    <filter-name>PageEhCacheFilter</filter-name>
+	    <filter-class>com.gdut.ds.filter.PageEhCacheFilter</filter-class>
+	    <init-param>
+	        <param-name>patterns</param-name>
+	        <param-value>/Home.html,General.html</param-value> 
+	    </init-param>
+	</filter>
+	
+	
+	<filter-mapping>
+	    <filter-name>PageEhCacheFilter</filter-name>
+	    <url-pattern>*.html</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+	    <filter-name>PageEhCacheFilter</filter-name>
+	    <url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	 
+	
+	 <!-- 加到任何servlet映射的顶部,不然可能有些路径不能被过滤到
+     -->
+    <filter>
+        <filter-name>UrlRewriteFilter</filter-name>
+        <filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+        <!--  设备文件重加载间隔 (0默示随时加载， -1默示不重加载， 默认-1) -->
+        <init-param>
+            <param-name>confReloadCheckInterval</param-name>
+            <param-value>60</param-value>
+        </init-param>
+        
+        <!-- 自定义配置文件的路径,是相对context的路径,(默认位置 /WEB-INF/urlrewrite.xml) -->
+        <init-param>
+            <param-name>confPath</param-name>
+            <param-value>/WEB-INF/config/urlrewrite.xml</param-value>
+        </init-param>
+        
+        <!-- 设置日志级别（将被记录到日志中）
+               	可以为: TRACE, DEBUG, INFO (default), WARN, ERROR, FATAL, log4j, commons, slf4j,
+             	  比如 sysout:DEBUG（设置到控制台调试输出级别） 
+        (默认级别 WARN) -->
+        <init-param>
+            <param-name>logLevel</param-name>
+            <param-value>WARN</param-value>
+        </init-param>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>UrlRewriteFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    
+	<filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>        
+    </filter>
+ 
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/*</url-pattern> 
+        <dispatcher>REQUEST </dispatcher>  
+        <dispatcher>FORWARD </dispatcher>  
+        <dispatcher>INCLUDE </dispatcher> 
+    </filter-mapping>
+    
+    
+	 
+	<listener> 
+		<listener-class>com.gdut.ds.listener.MyServletContextListener</listener-class>
+	</listener>	
+	<listener> 
+		<listener-class>com.gdut.ds.listener.MySessionListener</listener-class>
+	</listener>	
+	<session-config>  
+    	<session-timeout>5</session-timeout> 
+	</session-config>  
+
+	 
+	
+<!-- 配置spring的OpenSessionInViewFilter，以解决懒加载异常 -->  
+         <!-- 必须放在Struts上面 --> 
+      <filter>
+		<filter-name>loadFilter</filter-name>
+		<filter-class>com.gdut.ds.filter.LoadFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>loadFilter</filter-name>
+		<url-pattern>/manPage/*</url-pattern>
+	</filter-mapping>
+	 <filter>  
+	   <filter-name>OpenSessionInViewFilter</filter-name>  
+	    <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>  
+	</filter>
+	  
+	<filter-mapping>  
+	    <filter-name>OpenSessionInViewFilter</filter-name>  
+	    <url-pattern>/*</url-pattern>
+	    
+	</filter-mapping>  
+	
+	
+	
+	<filter>
+		<filter-name>struct2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+		
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>struct2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- 配置 spring的applicationContext.xml -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath*:spring/applicationContext-*.xml,/WEB-INF/applicationContext-*.xml</param-value>
+	</context-param>
+	
+	 <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/500.jsp</location>
+	</error-page>
+	
+</web-app>

@@ -1,0 +1,55 @@
+@CHARSET "UTF-8";
+body{color:#fff;font-size: 15px;background-image: url(../../photos/stuImg/back.jpg);}
+
+
+
+/*各种活动图片*/
+.pic{margin-top:5px;height:30%;}
+.pic img{width: 100%;height: 100%;}
+/*个人图片*/
+#personImg{width: 100%;}
+.img-thumbnail{background-color: #3caee7;border: 1px solid #3caee7;}
+
+
+
+/*内部例子*/
+.box{margin-bottom: 15px;}
+/*按钮*/
+.btn-primary{background-color: #3caee7;border-color:#3caee7; }
+.btn-primary:focus, .btn-primary.focus{background-color: #3caee7;border-color:#3caee7; }
+/*面板*/
+.panel-default{background-color:rgba(255,255,255,0.4);border: 0px;}
+.panel-default > .panel-heading{background-color: #3caee7;border:0px;color:#fff;cursor: pointer;}
+.panel-default > .theOne{background-color: #69b241;border-color: #69b241;color:#fff;font-weight: 500;}
+.panel-title > a, .panel-title > small, .panel-title > .small, .panel-title > small > a, .panel-title > .small > a{text-decoration: none;}
+/*分页*/
+#navi{text-align: center;}
+
+
+
+textarea{width:100%;resize:none;border:0px;background-color:rgba(255,255,255,0);}
+
+
+/*页脚保留边距*/
+.footer{margin-top: 100px;}
+.peoImg{
+	height:35%;	
+}
+
+h3{color:#69b241;}
+h4{color:#f0e11c;font-weight: 500;}
+#content{word-break: break-all;}
+
+
+/*
+@media (max-width: 767px) {
+  #content img{max-width: 100%;}
+}
+@media only screen and (min-width: 480px) and (max-width: 767px){
+  #content img{max-width: 100%;}
+}
+
+@media only screen and (max-width: 479px) {
+    #content img{max-width: 100%;}
+}
+*/

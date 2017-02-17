@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.gdut.ds.beans.introduction.DS_Member" table="DS_Member" >
+		<cache usage="read-write" />		<!-- 配置缓存（需要更新数据，那么使用读/写缓存） -->
+		<id name="id" column="id" type="string">
+			<generator class="uuid">
+			</generator>
+		</id>
+		
+		<property name="name" column="name" type="string"></property>
+		<property name="female" column="female" type="boolean"></property>
+		<property name="major" column="major" type="string"></property>
+		<property name="majorOnDs" column="majorOnDs" type="int"></property>
+		<property name="cla" column="cla" type="int"></property>
+		<property name="grade" column="grade" type="int"></property>
+		<property name="description" column="description" type="text"></property>
+		<property name="leavingWord" column="leavingWord" type="string"></property>	
+		<property name="image" column='image' type='string'></property>
+		<!-- <one-to-one name="image" class="com.gdut.ds.beans.introduction.Image" cascade="save-update"></one-to-one> -->
+	</class>
+
+</hibernate-mapping>
+ 

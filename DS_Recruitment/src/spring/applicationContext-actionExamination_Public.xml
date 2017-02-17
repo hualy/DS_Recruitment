@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+	">
+	
+	<!-- 考生端网上笔试 -->
+	
+	
+	<bean id="getTheExamPaper" class="com.gdut.ds.action.examination.publics.GetTheExamPaper" scope="prototype">
+		<property name="examinationService" ref="examinationService"></property>
+		<property name="examPaper" ref="examPaper"></property>
+	</bean>
+	
+	<bean id="firstScoringAction" class="com.gdut.ds.action.examination.publics.FirstScoringAction" scope="prototype">
+		<property name="examinationService" ref="examinationService"></property>
+		<property name="userInfoService" ref="userInfoService"></property>
+	</bean>
+	
+	<bean id="examPermissionJudgementAction" class="com.gdut.ds.action.examination.publics.ExamPermissionJudgementAction" scope="prototype">
+		<property name="examinationService" ref="examinationService"></property>
+	</bean>
+	
+	<bean id="createCheckCodeAction" class="com.gdut.ds.action.examination.publics.CreateCheckCodeAction" scope="prototype">
+		
+	</bean>
+	
+	<bean id="applicationValidateAction" class="com.gdut.ds.action.examination.publics.ApplicationValidateAction" scope="prototype">
+		<property name="userInfoService" ref="userInfoService"></property>
+	</bean>
+	
+</beans>

@@ -1,0 +1,24 @@
+textarea{
+	resize:none;
+}
+
+.exist-ann table,.exist-rec table{
+	text-align:center;
+}
+
+/*****发布/修改公告页面****/
+.revise-ann{
+	display:none;
+}
+
+/*****发布/修改公告页面****/
+
+/*****发布/修改招新信息页面****/
+.revise-rec{
+	display:none;
+}
+/*****发布/修改招新信息页面****/
+
+
+
+

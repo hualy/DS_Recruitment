@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+
+body{position: relative;}
+
+#nav{
+		background-color: rgba(255, 255, 255,0); /*透明*/
+		border: 0px;
+		color: #fff;
+		font: 1.5em;
+		margin-bottom: 0px;
+	}
+.navbar-default .navbar-nav > li > a{color: #fff;}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+	background-color:#3caee7;color:#fff;}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+	background-color:#3caee7;color:#fff;}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{background-color:#3caee7;color:#fff;}

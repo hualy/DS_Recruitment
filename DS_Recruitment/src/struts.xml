@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	
+
+<struts>
+	  	  
+	<constant name="struts.multipart.saveDir" value="/tmp"/> 
+	<!-- 设置文件上传的大小  -->
+	<constant name="struts.multipart.maxSize" value="102400000000"></constant>
+	
+	<!-- 设置用户访问的工作室介绍 -->
+	<package name="introductionByUser" extends="json-default" namespace="/user/introduction">
+		<action name="getMembers" class="com.gdut.ds.action.user.introduction.GetMemberAction">
+			<result name="success" type="json">/stuPage/General.jsp</result>
+		</action>
+		
+		<action name="getResults" class="com.gdut.ds.action.user.introduction.GetResultAction">
+			<result name="success" type="json">/stuPage/General.jsp</result>
+		</action>
+		
+		<action name="getInterecommunions" class="com.gdut.ds.action.user.introduction.GetInterecommunionAction">
+			<result name="success" type="json">/stuPage/General.jsp</result>
+		</action>
+		
+		<action name="getActivities" class="com.gdut.ds.action.user.introduction.GetActivitiesAction">
+			<result name="success" type="json">/stuPage/General.jsp</result>
+		</action>
+		
+		<action name="getArticles" class="com.gdut.ds.action.user.introduction.GetArticleAction">
+			<result name="success" type="json">/stuPage/General.jsp</result>
+		</action>
+		
+	</package>
+	
+	<!-- 工作室介绍  -->
+	<package name="introduction" extends="json-default" namespace="/admin/introduction">
+			
+		<!-- 生成成果 -->
+		<action name="createResult" class="com.gdut.ds.action.introduction.CreateResultAction">
+			<param name="savePath">images</param>
+			<result name="success" type="redirect" >
+			<param name="location">/manPage/GeneralSituation/PublishAchievement.jsp</param>
+			<param name="message">${message}</param>
+			</result>
+			<result name="input" type="redirect">
+			<param name="location">/manPage/GeneralSituation/PublishAchievement.jsp</param>
+			<param name="message">${message}</param>
+			</result>	
+		</action>
+		
+		<!-- 生成日常活动 -->
+		<action name="createActivity" class="com.gdut.ds.action.introduction.CreateActivityAction">
+			<param name="savePath">images</param>
+			<result name="success" type="redirect" >
+			<param name="location">/manPage/GeneralSituation/PublishActivities.jsp</param>
+			<param name="message">${message}</param>
+			</result>
+			<result name="input" type="redirect">
+			<param name="location">/manPage/GeneralSituation/PublishActivities.jsp</param>
+			<param name="message">${message}</param>
+			</result>	
+		</action>
+		
+		<!-- 生成日常活动 -->
+		<action name="createInterecommunion" class="com.gdut.ds.action.introduction.CreateInterecommunionAction">
+			<param name="savePath">images</param>
+			<result name="success" type="redirect" >
+			<param name="location">/manPage/GeneralSituation/PublishCommunication.jsp</param>
+			<param name="message">${message}</param>
+			</result>
+			<result name="input" type="redirect">
+			<param name="location">/manPage/GeneralSituation/PublishCommunication.jsp</param>
+			<param name="message">${message}</param>
+			</result>
+		</action>
+		
+		<!-- 生成推送 -->
+		<action name="createArticle" class="com.gdut.ds.action.introduction.CreateArticleAction">
+			<param name="xheSavePath">images/article/temp</param>
+			<param name="savePath">images</param>
+			<result name="success" type="redirect" >
+			<param name="location">/manPage/GeneralSituation/PublishInformation.jsp</param>
+			<param name="message">${message}</param>
+			</result>
+			<result name="input" type="redirect">
+			<param name="location">/manPage/GeneralSituation/PublishInformation.jsp</param>
+			<param name="message">${message}</param>
+			</result>
+		</action>
+		
+		<action name="createMember" class="com.gdut.ds.action.introduction.CreateMemberAction">
+			
+			
+			<param name='savePath'>images</param>			
+			<result name="success" type="redirect" >
+			<param name="location">/manPage/GeneralSituation/PublishMember.jsp</param>
+			<param name="message">${message}</param>
+			</result>
+			<result name="input" type="redirect">
+			<param name="location">/manPage/GeneralSituation/PublishMember.jsp</param>
+			<param name="message">${message}</param>
+			</result>
+		</action> 
+		
+		
+		<!-- 得到成果 -->
+		<action name="getResult" class="com.gdut.ds.action.introduction.GetResultAction">
+			   
+			<result name="success" type="json">/manPage/GeneralSituation/ReviseAchievement.jsp</result>
+		</action>
+		<!-- 根据Id来得到一个成果 -->
+		<action name="getOneResult" class="com.gdut.ds.action.introduction.GetOneResultAction">
+			<result name="success" type="json">/manPage/GeneralSituation/ReviseAchievement.jsp</result>
+		</action>
+		
+		<!-- 得到日常活动 -->
+		<action name="getActivities" class="com.gdut.ds.action.introduction.GetActivitiesAction">   
+			<result name="success" type="json">/manPage/GeneralSituation/ReviseActivities.jsp</result>
+		</action>
+		<!-- 根据Id来得到一个活动 -->
+		<action name='getOneActivity' class="com.gdut.ds.action.introduction.GetOneActivityAction">
+			<result name="success" type="json">/manPage/GeneralSituation/ReviseActivities.jsp</result>
+		</action>                                     
+		
+		<!-- 得到日常活动 -->
+		<action name="getInterecommunion" class="com.gdut.ds.action.introduction.GetInterecommunionAction">   
+			<result name="success" type="json">/manPage/GeneralSituation/ReviseCommunication.jsp</result>
+		</action>
+		
+		<!-- 根据Id得到一个日常活动 -->
+		<action name="getOneInterecommunion" class="com.gdut.ds.action.introduction.GetOneInterecommunionAction">   
+			<result name="success" type="json">/manPage/GeneralSituation/ReviseCommunication.jsp</result>
+		</action>
+		
+		<!-- 得到一系列推送 -->
+		<action name="getArticle" class="com.gdut.ds.action.introduction.GetArticleAction">   
+			<result name="success" type="json">/manPage/GeneralSituation/ReviseInformation.jsp</result>
+		</action>
+		
+		<!-- 根据ID得到一个推送 -->
+		<action name='getOneArticle' class="com.gdut.ds.action.introduction.GetOneArticleAction">
+			<result name="success" type="json">/manPage/GeneralSituation/ReviseInformation.jsp</result>
+		</action>
+		
+		<!-- 得到一系列的成员 -->
+		<action name="getMember" class="com.gdut.ds.action.introduction.GetMemberAction">
+			<result name="success" type="json">/manPage/GeneralSituation/ReviseMember.jsp</result>
+		</action>
+		<!-- 得到一个成员 -->
+		<action name="getOneMember" class="com.gdut.ds.action.introduction.GetOneMemberAction">
+			<result name="success" type="json">/manPage/GeneralSituation/ReviseMember.jsp</result>
+		</action>
+		
+		<!-- 更新成果 -->
+		<action name="updateResult" class="com.gdut.ds.action.introduction.UpdateResultAction">
+			<param name="savePath">images</param>
+			<result name="success" type="redirect">
+				<param name="location">/manPage/GeneralSituation/ReviseAchievement.jsp</param>
+				<param name="message">${message}</param>
+			</result>
+			<result name="input" type="redirect">
+				<param name="location">/manPage/GeneralSituation/ReviseAchievement.jsp</param>
+				<param name="message">${message}</param>
+			</result>
+		</action>
+		
+		<!-- 更新日常活动 -->
+		<action name="updateActivity" class="com.gdut.ds.action.introduction.UpdateActivityAction">
+			<param name="savePath">images</param>
+			<result name="success" type="redirect">
+				<param name="location">/manPage/GeneralSituation/ReviseActivities.jsp</param>
+				<param name="message">${message}</param>
+			</result>
+			<result name="input" type="redirect">
+				<param name="location">/manPage/GeneralSituation/ReviseActivities.jsp</param>
+				<param name="message">${message}</param>
+			</result>
+			
+		</action>
+		
+		<!-- 更新交流会-->
+		<action name="updateInterecommunion" class="com.gdut.ds.action.introduction.UpdateInterecommunionAction">
+			<param name="savePath">images</param>
+			<result name="success" type="redirect">
+				<param name="location">/manPage/GeneralSituation/ReviseCommunication.jsp</param>
+				<param name="message">${message}</param>
+			</result>
+			<result name="input" type="redirect">
+				<param name="location">/manPage/GeneralSituation/ReviseCommunication.jsp</param>
+				<param name="message">${message}</param>
+			</result>	
+		</action>
+		
+		<!-- 更新成员 -->
+		<action name="updateMember" class="com.gdut.ds.action.introduction.UpdateMemberAction">
+			<param name="savePath">images</param>
+			<result name="success" type="redirect">
+				<param name="location">/manPage/GeneralSituation/ReviseMember.jsp</param>
+				<param name="message">${message}</param>
+			</result>
+			<result name="input" type="redirect">
+				<param name="location">/manPage/GeneralSituation/ReviseMember.jsp</param>
+				<param name="message">${message}</param>
+			</result>	
+		</action>
+			<!-- 更新推送 -->
+		<action name="updateArticle" class="com.gdut.ds.action.introduction.UpdateArticleAction" >
+			<param name="xheSavePath">images/article/temp</param>
+			<param name="savePath">images</param>
+			<result name="success" type="redirect">
+				<param name="location">/manPage/GeneralSituation/ReviseInformation.jsp</param>
+				<param name="message">${message}</param>
+			</result>
+			<result name="input" type="redirect">
+				<param name="location">/manPage/GeneralSituation/ReviseInformation.jsp</param>
+				<param name="message">${message}</param>
+			</result>	
+		</action>
+		
+		<!-- 删除图片 -->
+		<action name="deleteImage" class="com.gdut.ds.action.introduction.DeleteImageAction">
+			<param name="savePath">images</param>
+			<result name="success"></result>
+		</action>
+		
+		<!-- 删除成果 -->
+		<action name="deleteResult" class="com.gdut.ds.action.introduction.DeleteResultAction">
+			<result name="success" >/manPage/GeneralSituation/ReviseAchievement.jsp</result>
+		</action>
+		
+		<!-- 删除成果 -->
+		<action name="deleteActivity" class="com.gdut.ds.action.introduction.DeleteActivityAction">
+			<result name="success">/manPage/GeneralSituation/ReviseActivities.jsp</result>
+		</action>
+		
+		<!-- 删除交流会 -->
+		<action name="deleteInterecommunion" class="com.gdut.ds.action.introduction.DeleteInterecommunionAction">
+			<result name="success">/manPage/GeneralSituation/ReviseCommunication.jsp</result>
+		</action>
+		
+		<!-- 删除推送 -->
+		<action name="deleteArticle" class="com.gdut.ds.action.introduction.DeleteArticleAction">
+			<result name="success">/manPage/GeneralSituation/ReviseInformation.jsp</result>
+		</action>
+		
+		<!-- 删除成员 -->
+		<action name="deleteMember" class="com.gdut.ds.action.introduction.DeleteMemberAction">
+			<result name="success">/manPage/GeneralSituation/ReviseMember.jsp</result>
+		</action>
+		<!-- xhe上传图片 -->
+		<action name="upLoadImage" class="com.gdut.ds.action.introduction.UpLoadImageAction">
+			<result name="none" type="dispatcher">/manPage/GeneralSituation/PublishInformation.jsp</result>
+			<param name="savePath">images/article/temp</param>
+		</action>
+		
+		<action name='deleteTempImageForArticle' class="com.gdut.ds.action.introduction.DeleteArticleTempImageAction">
+			<result name='success' ></result>
+		</action>
+		<action name='deleteTempImageForMember' class="com.gdut.ds.action.introduction.DeleteMemberTempImageAction">
+			<result name='success' ></result>
+		</action>
+		
+		<!-- member上传图片 -->
+		<action name="upLoadMemberImage" class="com.gdut.ds.action.introduction.UpLoadMemberImageAction">
+			<result name="none" >/manPage/GeneralSituation/PublishMember.jsp</result>
+			<param name="savePath">images/member/temp</param>
+		</action>
+				
+	</package>
+	
+	
+	<!-- 有关于留言的一些处理   -->
+	<package name="word" extends="json-default" namespace="/word">
+		
+		<!-- 发送留言 -->
+		<action name="sendLeavingWord" class="com.gdut.ds.action.word.SendLeavingWordAction" >
+			
+			<result name="success" type="json">
+				<param name="location">/stuPage/messageBoard.jsp</param>
+			</result>
+			<result name="invalid.token">
+				<param name="location">/stuPage/messageBoard.jsp</param>
+				<param name="message">请不要重复提交表单</param>
+			</result>
+
+			<result name="input" type='json'>/stuPage/messageBoard.jsp</result>
+
+		</action>
+		
+		
+		
+		<action name="getQuestion" class="com.gdut.ds.action.word.GetQuestionAction">
+			<result name="success" type="json">/stuPage/messageBoard.jsp</result>
+		</action>
+		
+		<action name="getCheckCode" class="com.gdut.ds.action.examination.publics.CreateCheckCodeAction">
+			<result name="success" type="stream">
+				<param name="contentType">image/jpeg</param>
+      			<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<!--  
+		<action name='checkCode' class="com.gdut.ds.action.word.CheckCode">
+			<result name="success" type='json'>/stuPage/messageBoard.jsp</result>
+		</action>
+		-->
+	</package>
+	<!-- 有关于留言的一些处理   -->
+	<package name="adminWord" extends="json-default" namespace="/admin/word">
+		<action name="getLeavingWord" class="com.gdut.ds.action.word.GetLeavingWordAction">
+			<result name="success" type="json">/manPage/MessageReply.jsp</result>
+		</action>
+		
+		<action name="answerForLeavingWord" class="com.gdut.ds.action.word.AnswerForLeavingWord">
+			<result name="success">/manPage/MessageReply.jsp</result>
+		</action>
+		
+	</package>
+	
+	
+	
+	
+	<!-- 用户信息相关的 -->
+	<package name="userInfo" extends="json-default" namespace="/userInfo">
+	
+		<!-- 管理员登录 -->
+		<action name="adminLoginAction" class="com.gdut.ds.action.userInfo.AdminLoginAction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 保存考生信息(有考试再用)
+		<action name="saveApplicantInfoAction" class="com.gdut.ds.action.userInfo.SaveApplicantInfoAction">
+			<result name="success" type="redirectAction">getTheExamPaper</result>
+		</action>	
+	 	-->
+	 	<action name="saveApplicantInfoAction" class="com.gdut.ds.action.userInfo.SaveApplicantInfoAction">
+			<result name="success" type="json"></result>
+		</action>
+		
+	
+	</package>
+	
+	<package name="adminUserInfo" extends="json-default" namespace="/admin/userInfo">
+		
+		<!-- 管理员注销 -->
+		<action name="adminLogoutAction" class="com.gdut.ds.action.userInfo.AdminLogoutAction">
+			<result name="success">/manPage/LoginManager.jsp</result>
+		</action>
+		
+	</package>
+	
+	<!-- 信息管理 -->
+	<package name="informationManagement" extends="json-default,struts-default" namespace="/admin/informationManagement">
+	
+	
+		<!-- 获取所有公告 -->
+		<action name="getAllTheNoticeAction" class="com.gdut.ds.action.informationManagement.GetAllTheNoticeAction">
+			<result name="success">/manPage/InformationManage/ReviseAnnouncement.jsp</result>
+		</action>
+	
+		<!-- 获取所有招新信息 -->
+		<action name="getAllTheRecruitmentAction" class="com.gdut.ds.action.informationManagement.GetAllTheRecruitmentAction">
+			<result name="success">/manPage/InformationManage/ReviseRecruitment.jsp</result>
+		</action>
+		
+		<!-- 发布公告 -->
+		<action name="publishTheNoticeAction" class="com.gdut.ds.action.informationManagement.PublishTheNoticeAction">
+			<result name="success" >getAllTheNoticeAction</result>
+		</action>
+		
+		<!-- 发布招新信息 -->
+		<action name="publishTheRecruitmentAction" class="com.gdut.ds.action.informationManagement.PublishTheRecruitmentAction">
+			<result name="success" >getAllTheRecruitmentAction</result>
+		</action>
+		
+		<!-- 修改公告信息 -->
+		<action name="reviseTheNoticeAction" class="com.gdut.ds.action.informationManagement.ReviseTheNoticeAction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 修改招新信息 -->
+		<action name="reviseTheRecruitmentAction" class="com.gdut.ds.action.informationManagement.ReviseTheRecruitmentAction">
+			<result name="success" type="json"></result>
+		</action>
+	
+		<!-- 删除公告 -->
+		<action name="deleteTheNoticeAction" class="com.gdut.ds.action.informationManagement.DeleteTheNoticeAction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 删除招新信息 -->
+		<action name="deleteTheRecruitmentAction" class="com.gdut.ds.action.informationManagement.DeleteTheRecruitmentAction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 获取特定公告 -->
+		<action name="getTheNoticeAction" class="com.gdut.ds.action.informationManagement.GetTheNoticeAction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 获取特定招新信息 -->
+		<action name="getTheRecruitmentAction" class="com.gdut.ds.action.informationManagement.GetTheRecruitmentAction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 浏览量统计 -->
+		<action name="getTheNewestPageViewsAction" class="com.gdut.ds.action.informationManagement.GetTheNewestPageViewsAction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		
+	</package>
+	
+	
+	<!-- 网上笔试学生端-->
+	<package name="examination_public" extends="json-default,struts-default" namespace="/examination_public">
+	
+		<!-- 获取所有信息 -->
+		<action name="getAllTheInformationAction" class="com.gdut.ds.action.informationManagement.GetAllTheInformationAction">
+			<result name="success">/stuPage/Information.jsp</result>
+		</action>
+	
+		<!-- 获取考试试卷 -->
+		<action name="getTheExamPaperAction" class="com.gdut.ds.action.examination.publics.GetTheExamPaperAction">
+			<result name="success">/stuPage/Exam.jsp</result>
+		</action>
+	
+		<!-- 进行初评,提交成绩信息 -->
+		<action name="firstScoringAction" class="com.gdut.ds.action.examination.publics.FirstScoringAction">
+			<result name="success">/stuPage/ExamAfter.jsp</result>
+		</action>
+	
+		<!-- 判断是否到了考试时间 -->
+		<action name="examPermissionJudgementAction" class="com.gdut.ds.action.examination.publics.ExamPermissionJudgementAction">
+			<result name="success">/stuPage/ExamApply.jsp</result>
+			<result name="input">/stuPage/ExamBefore.jsp</result>
+		</action>
+		
+		<!-- 报名验证码 -->
+		<action name="createCheckCodeAction" class="com.gdut.ds.action.examination.publics.CreateCheckCodeAction">
+			<result name="success" type="stream">
+				<param name="contentType">image/jpeg</param>
+      			<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		
+		<action name="applicationValidateAction" class="com.gdut.ds.action.examination.publics.ApplicationValidateAction">
+			<result name="success" type="json"></result>
+		</action>
+		
+	</package>
+	
+	
+	<!-- 网上笔试管理-->
+	<package name="examination_manager" extends="json-default,struts-default" namespace="/admin/examination_manager">
+	
+		<!-- 导出报名表(非网上考试时用) -->
+		<action name="exportTheApplicationFromAction" class="com.gdut.ds.action.examination.manager.ExportTheApplicationFromAction">
+			<result name="success" type="json"></result>
+		</action>
+	
+	
+		<!-- 获取题库的所有的题库信息 -->
+		<action name="getALLTheExaminationQuestionsAction" class="com.gdut.ds.action.examination.manager.GetALLTheExaminationQuestionsAction">
+			<result name="success">/manPage/ExamManage/ExamTopicManage.jsp</result>
+		</action>
+		
+		<!-- 删除指定套题 -->
+		<action name="deleteTheSetOfExaminationQuestionsAction" class="com.gdut.ds.action.examination.manager.DeleteTheSetOfExaminationQuestionsAction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 获取某套题的详细信息  -->
+		<action name="getTheSetOfExaminationQuestionsAction" class="com.gdut.ds.action.examination.manager.GetTheSetOfExaminationQuestionsAction">
+			<result name="success">/manPage/ExamManage/ReviseExamination.jsp</result>
+		</action>
+	
+		<!-- 判断输入的试题名称和套题号是否存在 -->
+		<action name="judgementOfsetIDAction" class="com.gdut.ds.action.examination.manager.JudgementOfsetIDAction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 增加一套试题 -->
+		<action name="addASetOfExaminationQuestionsAction" class="com.gdut.ds.action.examination.manager.AddASetOfExaminationQuestionsAction">
+			<result name="success" type="json">getALLTheExaminationQuestionsAction</result>
+		</action>
+	
+		<!-- 获取特定套题信息 -->
+		<action name="getTheSetOfExaminationQuestionsAction" class="com.gdut.ds.action.examination.manager.GetTheSetOfExaminationQuestionsAction">
+			<result name="success" >/manPage/ExamManage/ReviseExamination.jsp</result>
+		</action>
+		
+		<!-- 更新选择题 -->
+		<action name="reviseTheMultipleChoiceAction" class="com.gdut.ds.action.examination.manager.ReviseTheMultipleChoiceAction">
+			<result name="success" type="json"></result>
+		</action>
+	
+		<!-- 更新填空题 -->
+		<action name="reviseTheFillInTheBlankAction" class="com.gdut.ds.action.examination.manager.ReviseTheFillInTheBlankAction">
+			<result name="success" type="json"></result>
+		</action>
+	
+		<!-- 更新程序题 -->
+		<action name="reviseTheProceduralQuestionsAction" class="com.gdut.ds.action.examination.manager.ReviseTheProceduralQuestionsAction">
+			<result name="success" type="json"></result>
+		</action>
+	
+		<!-- 删除选择题 -->
+		<action name="deleteTheMultipleChoiceAction" class="com.gdut.ds.action.examination.manager.DeleteTheMultipleChoiceAction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 删除填空题 -->
+		<action name="deleteTheFillInTheBlankAction" class="com.gdut.ds.action.examination.manager.DeleteTheFillInTheBlankAction">
+			<result name="success" type="json"></result>
+		</action>
+	
+		<!-- 删除程序题 -->
+		<action name="deleteTheProceduralQuestionsAction" class="com.gdut.ds.action.examination.manager.DeleteTheProceduralQuestionsAction">
+			<result name="success" type="json"></result>
+		</action>
+	
+		<!-- 增加多道选择题 -->
+		<action name="addTheMultipleChoiceListAction" class="com.gdut.ds.action.examination.manager.AddTheMultipleChoiceListAction">
+			<result name="success" type="json"></result>
+		</action>	
+		
+		<!-- 增加多道填空题 -->
+		<action name="addTheFillInTheBlankListAction" class="com.gdut.ds.action.examination.manager.AddTheFillInTheBlankListAction">
+			<result name="success" type="json"></result>
+		</action>
+	
+		<!-- 增加多道程序题 -->
+		<action name="addTheProceduralQuestionsListAction" class="com.gdut.ds.action.examination.manager.AddTheProceduralQuestionsListAction">
+			<result name="success" type="json"></result>
+		</action>
+	
+		<!-- 增加考试信息 -->
+		<action name="addInformationForExamAction" class="com.gdut.ds.action.examination.manager.AddInformationForExamAction">
+			<result name="success" type="json"></result>
+		</action>
+	
+		<!-- 获取所有考试信息 -->
+		<action name="getAllInformationForExamAction" class="com.gdut.ds.action.examination.manager.GetAllInformationForExamAction">
+			<result name="success">/manPage/ExamManage/ExamMessageManage.jsp</result>
+		</action>
+		
+		<!-- 获取特定考试信息 -->
+		<action name="getTheInformationForExamAction" class="com.gdut.ds.action.examination.manager.GetTheInformationForExamAction">
+			<result name="success" type="json"></result>		
+		</action>
+		
+		<!-- 修改考试信息 -->
+		<action name="reviseInformationForExamAction" class="com.gdut.ds.action.examination.manager.ReviseInformationForExamAction">
+			<result name="success" type="json"></result>	
+		</action>
+	
+	</package>
+	
+	
+	
+	
+	
+</struts>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+	">
+	 
+		 
+		<!-- 将各种bean添加索引  -->
+		<bean id="activity" class="com.gdut.ds.beans.introduction.DS_Activity" scope="prototype"></bean>
+		<bean id="article" class="com.gdut.ds.beans.introduction.DS_Article" scope="prototype"></bean>
+		<bean id="member" class="com.gdut.ds.beans.introduction.DS_Member" scope="prototype"></bean>
+		<bean id="result" class="com.gdut.ds.beans.introduction.DS_Result" scope="prototype"></bean>
+		<bean id="image" class="com.gdut.ds.beans.introduction.Image" scope="prototype"></bean>
+		<bean id="interecommunion" class="com.gdut.ds.beans.introduction.DS_Interecommunion"></bean>
+		
+		<bean id="leavingWord" class="com.gdut.ds.beans.word.LeavingWord" scope="prototype"></bean>
+		<bean id="question" class="com.gdut.ds.beans.word.Question" scope="prototype"></bean>
+		
+		
+		
+		<bean id="admin" class="com.gdut.ds.beans.userInfo.Admin" scope="prototype"></bean>
+		<bean id="applicant" class="com.gdut.ds.beans.userInfo.Applicant" scope="prototype"></bean>
+		<bean id="classesInfo" class="com.gdut.ds.beans.userInfo.ClassesInfo" scope="prototype"></bean>
+		
+		<bean id="notice" class="com.gdut.ds.beans.informationManagement.Notice" scope="prototype"></bean>
+		<bean id="recruitment" class="com.gdut.ds.beans.informationManagement.Recruitment" scope="prototype"></bean>
+		<bean id="pageViews" class="com.gdut.ds.beans.informationManagement.PageViews" scope="prototype"></bean>
+
+		<bean id="examPaper" class="com.gdut.ds.beans.examination.ExamPaper" scope="prototype"></bean>
+		<bean id="informationForExam" class="com.gdut.ds.beans.examination.InformationForExam" scope="prototype"></bean>		
+		<bean id="stuGrade" class="com.gdut.ds.beans.examination.StudentAnswersANDGrade" scope="prototype"></bean>
+		<bean id="fillInTheBlank" class="com.gdut.ds.beans.examination.FillInTheBlank" scope="prototype"></bean>
+		<bean id="multipleChoice" class="com.gdut.ds.beans.examination.MultipleChoice" scope="prototype"></bean>
+		<bean id="proceduralQuestions" class="com.gdut.ds.beans.examination.ProceduralQuestions" scope="prototype"></bean>
+		<bean id="proceduralQuestionsAnswer" class="com.gdut.ds.beans.examination.ProceduralQuestionsAnswer" scope="prototype"></bean>
+		<bean id="examinationQuestions" class="com.gdut.ds.beans.examination.ExaminationQuestions" scope="prototype"></bean>
+		
+</beans>
